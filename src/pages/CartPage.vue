@@ -1,0 +1,3 @@
+<template>
+  <h1 class="text-xl font-bold p-4">This is the Cart Page</h1>
+</template>
