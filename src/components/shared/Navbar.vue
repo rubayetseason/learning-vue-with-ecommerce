@@ -14,7 +14,7 @@ const navLinks = [
 </script>
 
 <template>
-  <nav class="w-full max-w-[1350px] mx-auto flex justify-between items-center">
+  <nav class="max-w-custom w-full mx-auto flex justify-between items-center">
     <!-- Navigation Links -->
     <div class="text-lg font-medium flex items-center gap-5">
       <RouterLink

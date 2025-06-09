@@ -40,6 +40,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --max-w-custom: 1350px;
+  --w-custom: 1350px;
+  --width-custom: var(--w-custom);
+  --max-width-custom: var(--max-w-custom);
+
 }
 
 :root {
@@ -51,7 +57,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
   --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --primary-foreground: #F7E7D8;
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
