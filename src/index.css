@@ -52,7 +52,7 @@
   --font-sans: 'Quicksand', sans-serif;
   --background: #FFF9F4;
   --foreground: #0E333D;
-  --card: oklch(1 0 0);
+  --card: #9D6939;
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);

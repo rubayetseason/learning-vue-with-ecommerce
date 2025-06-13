@@ -59,7 +59,7 @@ const navLinks = [
         <img
           :src="sharedAssets.icons.logoWithoutBg"
           alt="Logo"
-          class="absolute top-10 left-1/2 -translate-y-1/2 w-20"
+          class="absolute top-10 left-1/2 -translate-y-1/2 w-16"
         />
       </div>
 
