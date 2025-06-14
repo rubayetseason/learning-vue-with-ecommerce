@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import type { IProductType } from "@/types";
-import { ShoppingBag } from "lucide-vue-next";
+import { ShoppingBag, Star } from "lucide-vue-next";
 
 const products = ref<IProductType[]>([]);
 const loading = ref(true);
@@ -18,7 +18,7 @@ const loading = ref(true);
 const fetchProducts = async () => {
   try {
     const res = await axiosInstance.get("/products?limit=10");
-    products.value = res.data;
+    products.value = res.data.products;
   } catch (error) {
     console.error("Failed to fetch products:", error);
   } finally {
@@ -42,29 +42,44 @@ onMounted(() => {
       <div v-if="loading" class="text-muted-foreground text-sm">
         Loading products...
       </div>
-
       <!-- ShadCN Carousel -->
       <Carousel
-        class="w-full max-w-custom mx-auto"
+        class="relative w-full max-w-custom mx-auto"
         :opts="{
           align: 'start',
+          loop: true,
         }"
       >
         <CarouselContent class="-ml-1">
           <CarouselItem
             v-for="(product, index) in products"
             :key="index"
-            class="pl-1 md:basis-1/2 lg:basis-1/3"
+            class="pl-1 md:basis-1/2 lg:basis-1/4"
           >
-            <Card class="bg-foreground text-primary-foreground">
-              <CardContent class="h-80 flex flex-col justify-between">
-                <h1 class="text-9xl font-semibold">{{ index + 1 }}</h1>
-              </CardContent>
-            </Card>
+            <img
+              :src="product?.thumbnail"
+              :alt="product?.title"
+              class="bg-primary-foreground"
+            />
+            <h2 class="mt-5 text-lg font-medium">{{ product?.title }}</h2>
+            <h2 class="mt-2 text-base">$ {{ product?.price }}</h2>
+            <!-- Star Rating -->
+            <div class="flex items-center gap-1 mt-2">
+              <Star
+                v-for="n in Math.floor(product?.rating || 0)"
+                :key="n"
+                class="text-yellow-500 fill-yellow-500"
+                :size="16"
+              />
+            </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <div
+          class="absolute -top-[70px] right-12 flex itemes-center justify-end"
+        >
+          <CarouselPrevious class="bg-foreground" />
+          <CarouselNext class="bg-foreground" />
+        </div>
       </Carousel>
     </div>
   </div>

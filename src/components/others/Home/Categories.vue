@@ -35,7 +35,6 @@ onMounted(() => {
 <template>
   <div class="mt-32 px-6 py-4 w-full max-w-custom mx-auto">
     <h1 class="mb-12 text-4xl font-bold">Our Categories</h1>
-    <!--  -->
     <!-- Skeleton Loader Cards -->
     <div v-if="loading" class="w-full">
       <div class="flex gap-2">
@@ -50,6 +49,7 @@ onMounted(() => {
       class="relative w-full max-w-custom mx-auto"
       :opts="{
         align: 'start',
+        loop: true,
       }"
     >
       <CarouselContent class="-ml-1">
