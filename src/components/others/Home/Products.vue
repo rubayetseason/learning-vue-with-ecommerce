@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import type { IProductType } from "@/types";
-import { ShoppingBag, Star } from "lucide-vue-next";
+import { Star } from "lucide-vue-next";
 
 const products = ref<IProductType[]>([]);
 const loading = ref(true);
