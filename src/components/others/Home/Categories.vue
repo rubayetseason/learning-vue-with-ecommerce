@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import type { ICategoryType } from "@/types";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ShoppingBag } from "lucide-vue-next";
 
 const categories = ref<ICategoryType[]>([]);
@@ -33,16 +34,20 @@ onMounted(() => {
 
 <template>
   <div class="mt-32 px-6 py-4 w-full max-w-custom mx-auto">
-    <h1 class="mb-12 text-4xl font-bold">Product Categories</h1>
-
-    <!-- Loading State -->
-    <div v-if="loading" class="text-muted-foreground text-sm">
-      Loading categories...
+    <h1 class="mb-12 text-4xl font-bold">Our Categories</h1>
+    <!--  -->
+    <!-- Skeleton Loader Cards -->
+    <div v-if="loading" class="w-full">
+      <div class="flex gap-2">
+        <div v-for="i in 3" :key="i" class="md:basis-1/2 lg:basis-1/3">
+          <Skeleton class="aspect-square w-full rounded-lg animate-pulse" />
+        </div>
+      </div>
     </div>
 
     <!-- ShadCN Carousel -->
     <Carousel
-      class="w-full max-w-custom mx-auto"
+      class="relative w-full max-w-custom mx-auto"
       :opts="{
         align: 'start',
       }"
@@ -68,8 +73,10 @@ onMounted(() => {
           </Card>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <div class="absolute -top-[70px] right-12 flex itemes-center justify-end">
+        <CarouselPrevious />
+        <CarouselNext />
+      </div>
     </Carousel>
   </div>
 </template>
